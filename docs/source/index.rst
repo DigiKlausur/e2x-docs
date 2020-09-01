@@ -54,6 +54,14 @@ for research purposes.
 
 .. toctree::
    :maxdepth: 2
+   :caption: ExamKernel
+   :titlesonly:
+
+   exam_kernel/installation
+   exam_kernel/configuration
+
+.. toctree::
+   :maxdepth: 2
    :caption: Infrastructure
    :titlesonly:
 
