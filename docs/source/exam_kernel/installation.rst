@@ -17,5 +17,7 @@ To install, clone the repository and do
 
 .. code-block:: bash
 
+  git clone https://github.com/DigiKlausur/exam_kernel
+  cd exam_kernel
   pip install .
   jupyter kernelspec install exam_kernel --sys-prefix
