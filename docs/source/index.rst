@@ -19,7 +19,8 @@ for research purposes.
    research
    talks
    people
-   news   
+   news
+   incident-reports 
 
 .. toctree::
    :maxdepth: 2
