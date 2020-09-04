@@ -11,6 +11,9 @@ courses both for teaching and examination.
 
 We separate instructor (grading) and student JupyterHub servers. 
 
+.. image:: ../images/e2x-infra.png
+    :align: center
+
 Grading Server
 ================
 
@@ -19,10 +22,17 @@ and courses. This server is shared among instructors, graders and professors so 
 collect and grade the assignments through this server. They can only have access to specific courses 
 thet they teach.
 
-ToDo: picture of jupyterhub service
+.. image:: ../images/grading-server.png
+    :align: center
+
+The courses are shared via JupyterHub services which give professors, instructors and graders access to the courses they teach.
+Professors and instructors have access to the formgrader to create, release, collect and grade the assignments.
+However, the graders can only grade the assignments.
+
+.. image:: ../images/grading-server-courses.png
+    :align: center
 
 The assignments are released to a NFS shared directory, which resides on the grading server as well.
-
 
 Teaching and Exam Servers
 ==========================
@@ -32,6 +42,9 @@ which provides a great step-by-step tutorial on how to install JupyterHub on Kub
 
 The Hub for teaching and examination also comes with nbgrader installed. FB02 LDAP is used as the 
 authentication. We mount the courses using `nfs` client provisioner. 
+
+.. image:: ../images/student-servers.png
+    :align: center
 
 Both servers are designed in such a way that only registered students can have 
 access to the courses they are registered for. Thus, students who have access to the JupyterHub are 
@@ -67,6 +80,8 @@ after the exam is scheduled. We strongly recommend the users to always backup yo
 
 Both exam and teaching enviroments are opensource and available on `our github <https://github.com/DigiKlausur/docker-stacks>`_.
 
-There may be multiple environments offered for each class. For example, Robot Perception environment 
-has some computer-vision related libraries and Natural Language Processing (NLP) image may come 
-with some NLP database.
+.. note::
+
+    There may be multiple environments offered for each class. For example, Robot Perception environment 
+    has some computer-vision related libraries and Natural Language Processing (NLP) image may come 
+    with some NLP database.
