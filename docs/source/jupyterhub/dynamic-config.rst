@@ -1,8 +1,8 @@
 .. _dynamic-config:
 
-*********************************
-Dynamic JupyterHub Configuration
-*********************************
+*********************
+Dynamic Configuration
+*********************
 
 Zero-to-JupyterHub allows extra JupyterHub config to be added to the default config. We can change or 
 override the default config through the extra configuration. 
