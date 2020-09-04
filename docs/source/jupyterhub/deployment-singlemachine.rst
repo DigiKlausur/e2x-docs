@@ -1,4 +1,4 @@
-.. _jupyterhub-deployment-local:
+.. _deployment-singlemachine:
 
 *****************************************
 Deployment on a Single Machine

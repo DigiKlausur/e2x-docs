@@ -37,10 +37,10 @@ for research purposes.
    :caption: JupyterHub
    :titlesonly:
 
-   jupyterhub/deployment-local
-   jupyterhub/deployment-gke
-   jupyterhub/deployment-openstack
+   jupyterhub/e2x-jupyterhub
    jupyterhub/environment
+   jupyterhub/dynamic-config
+   jupyterhub/deployment
 
 .. toctree::
    :maxdepth: 2
@@ -66,9 +66,4 @@ for research purposes.
    :titlesonly:
 
    infra/openstack
-   infra/kubespray
-   infra/kubernetes
-   infra/k8s-storage
-   infra/loadbalancer
-   infra/monitoring
-   infra/lernstick
+   infra/tutorials

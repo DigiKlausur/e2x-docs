@@ -1,4 +1,4 @@
-.. _jupyterhub-deployment-gke:
+.. _deployment-gke:
 
 *****************
 Deployment on GKE

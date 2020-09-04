@@ -1,9 +1,10 @@
-.. _jupyterhub-environment:
+.. _environment:
 
 **********************
-JupyterHub Environment
+Environment
 **********************
 
-* Singleuser
-* Singleuser + NLP
-* Singleuser + CV
+* Linux
+* Software
+* Data
+* Jupyter Notebook
