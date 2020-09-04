@@ -1,8 +1,8 @@
 .. _deployment:
 
-***********************
-JupyterHub Deployment
-***********************
+**********
+Deployment
+**********
 
 .. toctree::
    :maxdepth: 2
