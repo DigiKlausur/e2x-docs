@@ -12,4 +12,4 @@ People
 
 * Student assistant
 
-  * Name
+  * Protyush Kumar Das.
