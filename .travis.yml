@@ -3,7 +3,7 @@ language: python
 python:
   - "2.7"
   - "3.6"      # current default Python on Travis CI
-  - "nightly"  # nightly build
+
 
 virtualenv:
     system_site_packages: true
