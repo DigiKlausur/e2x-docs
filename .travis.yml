@@ -11,8 +11,10 @@ python:
   #- "nightly"  # nightly build
 
 # command to install dependencies
-install: pip install -r requirement.txt
+install:
+  - pip install -r requirement.txt
 
 # command to run tests
-script: cd docs
-        make html
+script:
+  - cd docs
+  - make html
