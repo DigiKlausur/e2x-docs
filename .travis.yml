@@ -5,8 +5,8 @@ python:
   - "3.6"      # current default Python on Travis CI
 
 
-virtualenv:
-    system_site_packages: true
+#virtualenv:
+#    system_site_packages: true
 
 install:
   - pip install --upgrade pip
