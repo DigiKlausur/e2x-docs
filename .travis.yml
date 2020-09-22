@@ -22,7 +22,7 @@ script:
   - git commit -m "New release pushed"
   - git push origin develop
   - cd ..
-  - rm -m DigiKlausur.github.io
+  - rm -r DigiKlausur.github.io
 
 #deploy:
 #  provider: pages
