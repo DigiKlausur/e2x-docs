@@ -11,7 +11,7 @@ install:
 
 # command to run tests
 script:
-  - git clone git@github.com:DigiKlausur/DigiKlausur.github.io.git
+  - git clone https://github.com/DigiKlausur/digiklausur.github.io
   - cd docs
   - make html
   - cd build
