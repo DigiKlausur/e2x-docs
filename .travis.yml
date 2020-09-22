@@ -4,22 +4,29 @@ python:
   - "2.7"
   - "3.6"      # current default Python on Travis CI
 
-
-#virtualenv:
-#    system_site_packages: true
-
 install:
   - pip install --upgrade pip
   - pip install -U Sphinx
   - pip install sphinx_rtd_theme
+
 # command to run tests
 script:
+  - git clone git@github.com:DigiKlausur/DigiKlausur.github.io.git
   - cd docs
   - make html
+  - cd build
+  - rsync -a html/ ../../DigiKlausur.github.io
+  - cd ../../DigiKlausur.github.io
+  - git checkout -b develop
+  - git add .
+  - git commit -m "New release pushed"
+  - git push origin develop
+  - cd ..
+  - rm -m DigiKlausur.github.io
 
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  on:
-    branch: develop
+#deploy:
+#  provider: pages
+#  skip-cleanup: true
+#  github-token: $GITHUB_TOKEN
+#  on:
+#    branch: develop
