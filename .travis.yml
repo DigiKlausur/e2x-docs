@@ -18,8 +18,8 @@ script:
   - rsync -a html/ ../../digiklausur.github.io
   - cd ../../digiklausur.github.io
   - git checkout -b develop
-  - git pull origin develop
-  - ^X
+  - git fetch --all
+  - git reset hard origin/develop
   - git add .
   - git commit -m "New release pushed"
   - git push origin develop
