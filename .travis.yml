@@ -25,9 +25,11 @@ script:
   - git push origin develop
 
 
-#deploy:
-#  provider: pages
-#  skip-cleanup: true
-#  github-token: $GITHUB_TOKEN
-#  on:
-#    branch: develop
+deploy:
+  provider: pages
+  user: "Protyush29"
+  password: "Protyush@29"
+  skip-cleanup: false
+  github-token: $GITHUB_TOKEN
+  on:
+    branch: develop
