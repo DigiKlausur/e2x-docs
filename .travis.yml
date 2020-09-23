@@ -1,35 +1,30 @@
 language: python
-
 python:
-  - "2.7"
-  - "3.6"      # current default Python on Travis CI
-
+- '2.7'
+- '3.6'
 install:
-  - pip install --upgrade pip
-  - pip install -U Sphinx
-  - pip install sphinx_rtd_theme
-
-# command to run tests
+- pip install --upgrade pip
+- pip install -U Sphinx
+- pip install sphinx_rtd_theme
 script:
-  - git clone https://github.com/DigiKlausur/digiklausur.github.io
-  - cd docs
-  - make html
-  - cd build
-  - rsync -a html/ ../../digiklausur.github.io
-  - cd ../../digiklausur.github.io
-  - git checkout -b develop
-  - git fetch --all
-  - git reset --hard origin/develop
-  - git add .
-  - git commit -m "New release pushed"
-  - git push origin develop
-
-
+- git clone https://github.com/DigiKlausur/digiklausur.github.io
+- cd docs
+- make html
+- cd build
+- rsync -a html/ ../../digiklausur.github.io
+- cd ../../digiklausur.github.io
+- git checkout -b develop
+- git fetch --all
+- git reset --hard origin/develop
+- git add .
+- git commit -m "New release pushed"
+- git push origin develop
 deploy:
   provider: pages
-  user: "Protyush29"
-  password: "Protyush@29"
+  user: Protyush29
+  password:
+    secure: FaYkSFP9o/hc7E0K/Z6ZFRQfQ9xTz+7UYWo4kFyWwucvhHoko8EprdmfAh1w4wM9j4mXHkof/avcmOEMjI0MfTeWuyx1zbO4f23SAixvUEaxBTZ1ZvTMZol/IjKz5VHx2pj69DnN8RjGHrAtd0eP71TfBq7+E/psggJup4HH2musoz6KLp1VWDxQTYUtiJoYVjfJWm3W0OtvdoJmpcUPgtu2HwidqK08P1wwLOiLvUzUrLl3qjOaxVOTsE4yxR1gJB/Oe+hBdqZ/KQOSCzfgcRyLu2PhRncvoIuF+kreHQ0Vhev8Uf5JoSC4WmlMNdQ1t5W5pQo8Ac75qBXinW9PrOvV4EltR0sUz9L8/u5v1fUpTOFn8csqtiGdoxSmQgf0MHvnu6cdQtuLw+OuAvt4gHa5BreFVuF3yHv3s9pSKjRP9Pt+1onKx5GyDaWoixP0DnToGyuEyK9o5HnXUdQAba7IZ7PrBi6PXRCgHTR+KIEQwGslFzQsbL17wR677ZrQuo/nkT57VjODiSdrtvIlXT+iZOl4KAIDu0VBBvzuA/mcb9pZgZqJjTzraxDeFk7lIXetuG7jxAieaelbOhh6Vt9kp7aYz9hMf8fm3YdCpOYtF2hQGIId90ZJPoLa0rTcgOnOMlpdWWDBjVCneMyxTqziewUOHG74mZnIhV5QafE=
   skip-cleanup: false
-  github-token: $GITHUB_TOKEN
+  github-token: "$GITHUB_TOKEN"
   on:
     branch: develop
