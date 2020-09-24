@@ -10,18 +10,17 @@ script:
 - git clone https://github.com/DigiKlausur/digiklausur.github.io
 - cd docs
 - make html
-#- cd build
-#- rsync -a html/ ../../digiklausur.github.io
-#- cd ../../digiklausur.github.io
-#- git checkout -b develop
-#- git fetch --all
-#- git reset --hard origin/develop
-#- git add .
-#- git commit -m "New release pushed"
+- cd build
+- rsync -a html/ ../../digiklausur.github.io
+- cd ../../digiklausur.github.io
+- git checkout -b develop
+- git fetch --all
+- git reset --hard origin/develop
+- git add .
+- git commit -m "New release pushed"
+- git remote add origin-pages https://${GITHUBH_TOKEN}@github.com/DigiKlausur/digiklausur.github.io > /dev/null 2>&1
+- git push --quiet --set-upstream origin-pages develop
 #- git push origin develop
-
-after_success:
-  - ./push.sh
 
 env:
   global:
