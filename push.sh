@@ -19,7 +19,7 @@ commit_website_files() {
 }
 
 upload_files() {
-  git remote add origin-pages https://${GITHUBH_TOKEN}@github.com/DigiKlausur/digiklausur.github.io > /develop 2>&1
+  git remote add origin-pages https://${GITHUBH_TOKEN}@github.com/DigiKlausur/digiklausur.github.io > /dev/null 2>&1
   git push --quiet --set-upstream origin-pages develop
 }
 
