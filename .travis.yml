@@ -21,7 +21,7 @@ script:
 #- git push origin develop
 
 after_success:
-  - .travis/push.sh
+  - ./push.sh
 
 env:
   global:
