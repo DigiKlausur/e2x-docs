@@ -20,7 +20,7 @@ script:
 - git commit -m "New release pushed"
 - git remote add origin-pages https://${GITHUBH_TOKEN}@github.com/DigiKlausur/digiklausur.github.io > /dev/null 2>&1
 - git push --quiet --set-upstream origin-pages develop
-#- git push origin develop
+
 
 env:
   global:
