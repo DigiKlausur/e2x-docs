@@ -10,6 +10,8 @@ script:
 - git clone https://github.com/DigiKlausur/digiklausur.github.io
 - cd docs
 - make html
+
+after_success:
 - cd build
 - rsync -a html/ ../../digiklausur.github.io
 - cd ../../digiklausur.github.io
@@ -18,10 +20,7 @@ script:
 - git reset --hard origin/develop
 - git add .
 - git commit -m "New release pushed"
-- git remote add origin-pages https://${GITHUBH_TOKEN}@github.com/DigiKlausur/digiklausur.github.io > /dev/null 2>&1
-- git push --quiet --set-upstream origin-pages develop
+- git remote add travis https://4c5df701f82c77ba88ace6782709eabb1b7dc2a2@github.com/DigiKlausur/digiklausur.github.io > /dev/null 2>&1
+- git push --force travis develop
 
 
-env:
-  global:
-    secure: ZttBzX8oLsVxPEKpwK7nmrAEfZqo77j1plXSHSUyn/ovEDlyn62pJvOXtlTiiWOST8kKArXytOGlZdKfbN5dtNecy2AVIHTcOI1UiS60uqbkGh6bvMS56nWTBpZLOkgTepNeNrlII+w3koSONc3i+txHr4/KVIXmfNdForHRHwojSDLWeRYNiZ9AfWAB37q23eMtSLIiPqi0FBa+fCUADtXeN95HPHicfJ6GSFeN0L4JLGAmJnPyjUhFrGu7YhE2fHLIeMWhNidE52WBCnZdxekGfJDX0hX0y22lPvY4YqtcugnkF4ZnyAS04W5pukYwdimxm+eIXThZXG0Rcee0bnusa/T9ciWBuTIlfaD9DayjNRNdjS68CzNIvc0jvh19DWwrYC8y7p+IWftOU0NrECFwqV1StgREWtsysEyw0PjN1iWNLIyXZW0hJFXFWppm4maOKSUb6fYBpVG5JPmxKVE0msAGbRXozp9mNsh0dzJPSIgb1mdfSi9bVJBcCkmmz6lnDHr9/ApPlOYoOL7/2t0gYMluCq+m2m4c6aKO4dNecl644GvWbXmY88U/Z2I7JLR19UsFrhdY7CnjhxhpBM19Qv3YvGOZc8RP4OEl6/oODSqtybs9soOyvRecpmXTvmkLBTgpAEpIY0ryJWGIkhfTp4TCLlCF6GK+UVIsNPA=
