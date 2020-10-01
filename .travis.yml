@@ -7,20 +7,16 @@ install:
 - pip install -U Sphinx
 - pip install sphinx_rtd_theme
 script:
-- git clone https://github.com/DigiKlausur/digiklausur.github.io
 - cd docs
 - make html
-
-after_success:
-- cd build
-- rsync -a html/ ../../digiklausur.github.io
-- cd ../../digiklausur.github.io
+- git clone https://Protyush29:Protyush@29@github.com/DigiKlausur/digiklausur.github.io
+- rsync -a build/html/ digiklausur.github.io
+- cd digiklausur.github.io
 - git checkout -b develop
 - git fetch --all
 - git reset --hard origin/develop
-- git add .
+- git add *
 - git commit -m "New release pushed"
-- git remote add travis https://4c5df701f82c77ba88ace6782709eabb1b7dc2a2@github.com/DigiKlausur/digiklausur.github.io > /dev/null 2>&1
-- git push --force travis develop
+- git push origin develop
 
 
