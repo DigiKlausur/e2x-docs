@@ -3,9 +3,6 @@ python:
 #- '2.7'
 - '3.6'
 
-before_install:
-- echo -e "machine github.com\n  login Protyush29\n  password Protyush@29" > ~/.netrc
-
 install:
 - pip install --upgrade pip
 - pip install -U Sphinx
@@ -14,7 +11,7 @@ install:
 script:
 - cd docs
 - make html
-- git clone https://github.com/DigiKlausur/digiklausur.github.io
+- git clone https://$GITHUB_USERNAME:$GITHUB_PASSWORD@github.com/DigiKlausur/digiklausur.github.io.git
 - rsync -a build/html/ digiklausur.github.io
 - cd digiklausur.github.io
 - git checkout -b develop
