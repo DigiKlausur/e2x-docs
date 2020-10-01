@@ -2,14 +2,19 @@ language: python
 python:
 #- '2.7'
 - '3.6'
+
+before_install:
+- echo -e "machine github.com\n  login Protyush29\n  password Protyush@29" > ~/.netrc
+
 install:
 - pip install --upgrade pip
 - pip install -U Sphinx
 - pip install sphinx_rtd_theme
+
 script:
 - cd docs
 - make html
-- git clone https://Protyush29:Protyush@29@github.com/DigiKlausur/digiklausur.github.io
+- git clone https://github.com/DigiKlausur/digiklausur.github.io
 - rsync -a build/html/ digiklausur.github.io
 - cd digiklausur.github.io
 - git checkout -b develop
