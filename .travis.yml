@@ -11,6 +11,7 @@ install:
 script:
 - cd docs
 - make html
+- git branch
 - git clone https://$GITHUB_USERNAME:$GITHUB_PASSWORD@github.com/DigiKlausur/digiklausur.github.io.git
 - cd digiklausur.github.io
 - git checkout -b develop
