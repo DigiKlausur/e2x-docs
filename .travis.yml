@@ -13,7 +13,7 @@ script:
 - make html
 - git branch
 - git clone https://$GITHUB_USERNAME:$GITHUB_PASSWORD@github.com/DigiKlausur/digiklausur.github.io.git
-- rm digiklausur.github.io/*
+- rm -rfv digiklausur.github.io/*
 - rsync -a build/html/ digiklausur.github.io
 - cd digiklausur.github.io
 - git checkout -b develop
