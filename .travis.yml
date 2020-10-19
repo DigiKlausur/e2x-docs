@@ -1,6 +1,5 @@
 language: python
 python:
-#- '2.7'
 - '3.6'
 
 install:
@@ -19,6 +18,4 @@ script:
 - git add .
 - git commit -m "New release pushed"
 - git push origin master
-
-
 
