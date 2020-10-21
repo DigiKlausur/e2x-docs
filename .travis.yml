@@ -12,11 +12,10 @@ script:
 - make html
 - git branch
 - git clone https://$GITHUB_USERNAME:$GITHUB_PASSWORD@github.com/DigiKlausur/digiklausur.github.io.git
-- cd digiklausur.github.io
-- cd ..
 - rm -rfv digiklausur.github.io/*
 - rsync -a build/html/ digiklausur.github.io
 - cd digiklausur.github.io
 - git add .
 - git commit -m "New release pushed"
 - git push origin master
+
