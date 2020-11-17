@@ -11,6 +11,10 @@ before_install:
 
 jobs:
   include:
+    - stage: build-pr
+      script:
+      - cd docs
+      - make html
     - stage: build-develop
       script:
       - cd docs
@@ -29,7 +33,7 @@ jobs:
       - git push origin master
 
 stages:
-  - name: build-develop
+  - name: build-pr
     if: type = pull_request
   - name: build-develop
     if: type = push AND branch = develop
