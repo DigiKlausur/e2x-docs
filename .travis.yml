@@ -11,6 +11,10 @@ before_install:
 
 jobs:
   include:
+    - stage: build-pr
+      script:
+      - cd docs
+      - make html
     - stage: build-develop
       script:
       - cd docs
@@ -19,17 +23,17 @@ jobs:
       script:
       - cd docs
       - make html
-      - git branch
+      - REV_VERSION=$(git rev-parse --short HEAD)
       - git clone https://$GITHUB_USERNAME:$GITHUB_PASSWORD@github.com/DigiKlausur/digiklausur.github.io.git
       - rm -rfv digiklausur.github.io/*
       - rsync -a build/html/ digiklausur.github.io
       - cd digiklausur.github.io
       - git add .
-      - git commit -m "New release pushed"
+      - git commit -m "New release $REV_VERSION pushed"
       - git push origin master
 
 stages:
-  - name: build-develop
+  - name: build-pr
     if: type = pull_request
   - name: build-develop
     if: type = push AND branch = develop
