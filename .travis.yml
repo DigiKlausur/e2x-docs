@@ -1,21 +1,37 @@
+dist: focal
 language: python
-python:
-- '3.6'
 
-install:
+notifications:
+  email: false
+
+before_install:
 - pip install --upgrade pip
 - pip install -U Sphinx
 - pip install sphinx_rtd_theme
 
-script:
-- cd docs
-- make html
-- git branch
-- git clone https://$GITHUB_USERNAME:$GITHUB_PASSWORD@github.com/DigiKlausur/digiklausur.github.io.git
-- rm -rfv digiklausur.github.io/*
-- rsync -a build/html/ digiklausur.github.io
-- cd digiklausur.github.io
-- git add .
-- git commit -m "New release pushed"
-- git push origin master
+jobs:
+  include:
+    - stage: build-develop
+      script:
+      - cd docs
+      - make html
+    - stage: deploy-prod
+      script:
+      - cd docs
+      - make html
+      - git branch
+      - git clone https://$GITHUB_USERNAME:$GITHUB_PASSWORD@github.com/DigiKlausur/digiklausur.github.io.git
+      - rm -rfv digiklausur.github.io/*
+      - rsync -a build/html/ digiklausur.github.io
+      - cd digiklausur.github.io
+      - git add .
+      - git commit -m "New release pushed"
+      - git push origin master
 
+stages:
+  - name: build-develop
+    if: type = pull_request
+  - name: build-develop
+    if: type = push AND branch = develop
+  - name: deploy-prod
+    if: type = push AND branch = master
