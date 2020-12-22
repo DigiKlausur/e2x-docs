@@ -63,4 +63,5 @@ jobs:
         echo "Commit changes"
         git commit -m "New release $REV_VERSION pushed"
         echo "Push changes"
+        git remote set-url origin https://${{ secrets.GH_USERNAME }}:${{ secrets.GH_TOKEN }}@github.com/DigiKlausur/digiklausur.github.io.git 
         git push origin master
