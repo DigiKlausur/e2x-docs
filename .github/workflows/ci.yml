@@ -52,7 +52,6 @@ jobs:
         
         # Clone, resync and push docs
         git clone https://$USERNAME:$TOKEN@github.com/DigiKlausur/digiklausur.github.io.git
-        rm -rfv digiklausur.github.io/*
         cp -r $GITHUB_WORKSPACE/docs/build/html/* digiklausur.github.io
         cd digiklausur.github.io
         if [[ -z `git diff --exit-code` ]]; then echo "No changes to push; exiting..."; exit 0; fi
