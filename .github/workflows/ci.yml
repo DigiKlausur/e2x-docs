@@ -10,23 +10,17 @@ on:
     - cron: "0 1 * * 0" # at 01.00 week 0 ( every Sunday)
 
 jobs:
-  setup:
-    name: Install dependencies
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - run: |
-        pip install --upgrade pip
-        pip install -r requirement.txt
-
   build:
     name: Build
-    needs: setup
     runs-on: ubuntu-latest
     if: (github.event_name == 'pull_request') || (github.event_name == 'push' && github.ref == 'refs/heads/dev') 
 
     steps:
     - uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        sudo pip3 install -r requirements.txt
 
     - name: Build E2x Docs
       run: |
@@ -42,13 +36,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Login to GitHub
+    - name: Build and deploy image
       shell: bash
       env:
         USERNAME: ${{ secrets.GH_USERNAME }}
         TOKEN: ${{ secrets.GH_TOKEN }}
-    - name: Build and deploy image
-      id: docker_deploy_dev
       run: |
         git clone https://$USERNAME:$TOKEN@github.com/DigiKlausur/digiklausur.github.io.git
         rm -rfv digiklausur.github.io/*

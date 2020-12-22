@@ -5,7 +5,7 @@
 To build the docs, go to `docs` folder and install requirements:
 
 ```
-pip install -r requirement.txt
+pip install -r requirements.txt
 cd docs
 make html
 ```
