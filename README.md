@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/DigiKlausur/e2x-docs.svg?branch=master)](https://travis-ci.org/DigiKlausur/e2x-docs)
+[<!--lint ignore no-dead-urls-->![Build Status](https://github.com/digiklausur/e2x-docs/workflows/CI/badge.svg)](https://github.com/digiklausur/e2x-docs/actions?workflow=CI)
 
 # E2x documentation and guidelines
 
