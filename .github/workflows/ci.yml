@@ -23,6 +23,7 @@ jobs:
         pip3 install -U -r requirements.txt
         #sudo apt-get install python3-sphinx
         echo $PATH
+        which sphinx
         which sphinx-build
 
     - name: Build E2x Docs
