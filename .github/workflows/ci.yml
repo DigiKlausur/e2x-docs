@@ -42,13 +42,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Login to GitHub
+    - name: Build and deploy image
       shell: bash
       env:
         USERNAME: ${{ secrets.GH_USERNAME }}
         TOKEN: ${{ secrets.GH_TOKEN }}
-    - name: Build and deploy image
-      id: docker_deploy_dev
       run: |
         git clone https://$USERNAME:$TOKEN@github.com/DigiKlausur/digiklausur.github.io.git
         rm -rfv digiklausur.github.io/*
