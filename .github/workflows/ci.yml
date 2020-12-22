@@ -21,9 +21,6 @@ jobs:
     - name: Install dependencies
       run: |
         sudo pip3 install -r requirements.txt
-        #sudo apt-get install python3-sphinx
-        echo $PATH
-        which sphinx-build
 
     - name: Build E2x Docs
       run: |
