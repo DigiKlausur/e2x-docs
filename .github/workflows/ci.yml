@@ -56,7 +56,11 @@ jobs:
         cd digiklausur.github.io
         git config --local user.name "E2x CI"
         git config --local user.email "e2x@h-brs.de"
+        echo "Check changes"
         if [[ -z `git diff --exit-code` ]]; then echo "No changes to push; exiting..."; exit 0; fi
+        echo "Add all changes"
         git add .
+        echo "Commit changes"
         git commit -m "New release $REV_VERSION pushed"
+        echo "Push changes"
         git push origin master
