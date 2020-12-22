@@ -25,7 +25,6 @@ jobs:
       run: |
         cd docs
         make html
-        REV_VERSION=$(git rev-parse --short HEAD)
 
   deploy:
     name: Deploy E2x Docs
@@ -35,15 +34,25 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        sudo pip3 install -r requirements.txt
+
     - name: Build and deploy image
       shell: bash
       env:
         USERNAME: ${{ secrets.GH_USERNAME }}
         TOKEN: ${{ secrets.GH_TOKEN }}
       run: |
+        # Build e2x-docs
+        cd docs
+        make html
+        REV_VERSION=$(git rev-parse --short HEAD)
+        
+        # Clone, resync and push docs
         git clone https://$USERNAME:$TOKEN@github.com/DigiKlausur/digiklausur.github.io.git
         rm -rfv digiklausur.github.io/*
-        echo "Github Workspace: $GITHUB_WORKSPACE"
         rsync -a $GITHUB_WORKSPACE/docs/build/html/ digiklausur.github.io
         cd digiklausur.github.io
         if [[ -z `git diff --exit-code` ]]; then echo "No changes to push; exiting..."; exit 0; fi
