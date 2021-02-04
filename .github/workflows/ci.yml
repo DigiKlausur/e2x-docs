@@ -39,13 +39,25 @@ jobs:
       run: |
         sudo pip3 install -r requirements.txt
 
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GH_TOKEN }}
+
     - name: Build and deploy image
       shell: bash
       env:
         USERNAME: ${{ secrets.GH_USERNAME }}
         TOKEN: ${{ secrets.GH_TOKEN }}
       run: |
-        # Build e2x-docs
+        #deploy to ghcr.io
+        cd $GITHUB_WORKSPACE
+        docker build -t ghcr.io/digiklausur/e2x-docs:latest .
+        docker push ghcr.io/digiklausur/e2x-docs:latest     
+
+        # Build e2x-docs and push to github page
         cd docs
         make html
         REV_VERSION=$(git rev-parse --short HEAD)
@@ -60,3 +72,4 @@ jobs:
         git add .
         git commit -m "New release $REV_VERSION pushed"
         git push origin master
+
