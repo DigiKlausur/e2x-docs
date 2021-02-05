@@ -29,7 +29,7 @@ RUN cd /home/jovyan/e2x-docs && pip3 install -r requirements.txt
 #RUN cd /home/jovyan/e2x-docs/docs && make html
 
 # Expose the live build using sphinx-autobuild
-CMD sphinx-autobuild -b html --host 0.0.0.0 --port 80 /home/jovyan/e2x-docs/docs/source /home/jovyan/e2x-docs/docs/build &&\
+CMD sphinx-autobuild -b html --host 0.0.0.0 --port 8080 /home/jovyan/e2x-docs/docs/source /home/jovyan/e2x-docs/docs/build &&\
     (cron -f &) && tail -f /var/log/cron.log
 
 USER jovyan
