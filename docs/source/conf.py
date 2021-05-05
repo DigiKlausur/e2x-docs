@@ -12,18 +12,15 @@
 #
 import os
 import sys
-# sys.path.insert(0, os.path.abspath('.'))
-
 
 # -- Project information -----------------------------------------------------
 
 project = 'E2X H-BRS'
-copyright = '2020, E2X H-BRS'
+copyright = '2021, E2X H-BRS'
 author = 'E2X H-BRS'
 
 # The full version, including alpha/beta/rc tags
 release = '0.1.0'
-
 
 # -- General configuration ---------------------------------------------------
 
@@ -65,4 +62,8 @@ html_title = 'E2X H-BRS'
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
 html_logo = 'images/e2x.png'
+
+# Disable view page source
+html_show_sourcelink = False
+
 # -- Extension configuration -------------------------------------------------
