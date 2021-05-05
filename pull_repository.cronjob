@@ -1,1 +1,1 @@
-0 */6 * * * su -s /bin/sh nobody -c 'cd /home/jovyan/e2x-docs && /usr/bin/git pull -q origin master'
+15 * * * * su -s /bin/sh nobody -c 'cd /home/jovyan/e2x-docs && /usr/bin/git pull -q origin master'
