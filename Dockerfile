@@ -19,7 +19,6 @@ RUN chmod 0644 /opt/git/pull_repository.cronjob && \
     crontab /opt/git/pull_repository.cronjob
 RUN touch /var/log/cron.log
 
-#RUN git clone https://github.com/DigiKlausur/e2x-docs
 USER root
 RUN mkdir /home/jovyan/e2x-docs
 COPY . /home/jovyan/e2x-docs
