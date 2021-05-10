@@ -5,8 +5,12 @@ LABEL maintainer="DigiKlausur project H-BRS <mohammad.wasil@h-brs.de>"
 RUN apk add --no-cache git
 RUN apk add --update alpine-sdk
 
+RUN addgroup -g 1000 jovyan
+RUN adduser -D -G jovyan -u 1000 jovyan
+
 RUN mkdir /tmp/e2x-docs
 COPY . /tmp/e2x-docs
 RUN cd /tmp/e2x-docs && pip3 install -r requirements.txt
 RUN rm -rf /tmp/e2x-docs
 
+USER jovyan
