@@ -5,18 +5,8 @@ LABEL maintainer="DigiKlausur project H-BRS <mohammad.wasil@h-brs.de>"
 RUN apk add --no-cache git
 RUN apk add --update alpine-sdk
 
-RUN addgroup -g 1000 jovyan
-RUN adduser -D -G jovyan -u 1000 jovyan
+RUN mkdir /tmp/e2x-docs
+COPY . /tmp/e2x-docs
+RUN cd /tmp/e2x-docs && pip3 install -r requirements.txt
+RUN rm -rf /tmp/e2x-docs
 
-WORKDIR /home/jovyan
-
-USER root
-RUN mkdir /home/jovyan/e2x-docs
-COPY . /home/jovyan/e2x-docs
-RUN chown jovyan:jovyan -R /home/jovyan/e2x-docs
-RUN cd /home/jovyan/e2x-docs && pip3 install -r requirements.txt
-RUN rm -rf /home/jovyan/e2x-docs
-
-# Expose the live build using sphinx-autobuild
-CMD sphinx-autobuild -b html --host 0.0.0.0 --port 8080 /src/e2x-docs/docs/source /src/e2x-docs/docs/build 
-    
