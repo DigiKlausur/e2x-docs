@@ -10,25 +10,13 @@ RUN adduser -D -G jovyan -u 1000 jovyan
 
 WORKDIR /home/jovyan
 
-RUN pip3 install sphinx \
-    && pip3 install sphinx-autobuild
-
-# Create cronjob to reload the source every 6 hour
-ADD pull_repository.cronjob /opt/git/pull_repository.cronjob
-RUN chmod 0644 /opt/git/pull_repository.cronjob && \
-    crontab /opt/git/pull_repository.cronjob
-RUN touch /var/log/cron.log
-
 USER root
 RUN mkdir /home/jovyan/e2x-docs
 COPY . /home/jovyan/e2x-docs
 RUN chown jovyan:jovyan -R /home/jovyan/e2x-docs
 RUN cd /home/jovyan/e2x-docs && pip3 install -r requirements.txt
-
-#RUN cd /home/jovyan/e2x-docs/docs && make html
+RUN rm -rf /home/jovyan/e2x-docs
 
 # Expose the live build using sphinx-autobuild
-CMD sphinx-autobuild -b html --host 0.0.0.0 --port 8080 /home/jovyan/e2x-docs/docs/source /home/jovyan/e2x-docs/docs/build &&\
-    (cron -f &) && tail -f /var/log/cron.log
-
-USER jovyan
+CMD sphinx-autobuild -b html --host 0.0.0.0 --port 8080 /src/e2x-docs/docs/source /src/e2x-docs/docs/build 
+    
