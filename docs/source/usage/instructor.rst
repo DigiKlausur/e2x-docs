@@ -31,9 +31,9 @@ To request a course, we need the following information:
   :widths: 25 75
 
   * - **Course**
-    - The name of the course and its abbreviation. 
+    - The name of the course and its course slug. 
       
-      For example `name: Robot Perception` `abbreviation: RP`
+      For example `name: Robot Perception` `course slug: RP`
 
       A complete course identifier for WS 2020 will be *RP-WS20*
 
@@ -55,7 +55,11 @@ To request a course, we need the following information:
       The storage is shared but we have a limited capacity.
 
       So you should let us know if the course requires a lot of storage.
-    
+  
+  * - **Environment**
+    - A generic image is used for all course as explained in :ref:`here <environment>`.
+
+      However, instructors could request own environment if required.       
    
 - **Additional resources**
 
@@ -70,6 +74,20 @@ To request a course, we need the following information:
 
   Both directories are read-write to graders and read-only to students.
 
+.. _instructor_course_profile:
+
+Course profile
+==============
+
+Once e2x sys-admin adds the requested course to the hub, the course should be available 
+as a profile. Only the corresponding instructors or graders should be able to 
+see and select the course in the profile list during spawning.
+
+.. figure:: images/grader_profile_list.png
+   :alt: Example of instructor profile list
+   :align: center
+
+   Example of instructor profile list
 
 .. _instructor_user_management:
 
