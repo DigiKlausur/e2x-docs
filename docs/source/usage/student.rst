@@ -14,6 +14,13 @@ used for the following courses:
 
   * Grundlagen von Wahrscheinlichkeitstheorie und Statistik (WS20)
 
+  .. warning::
+
+    This server is terminated on 18.02.2021. If you want to get have e2x Jupyter 
+    Notebook environment, please read :ref:`our news update <news>`.
+
+    WuS-WS20 students should have got an email on 04.08.2021 about this termination.
+
 2. `University server <https://e2x.inf.h-brs.de/jupyterhub/uebung>`_ used for the following courses:
 
   * Mathematics for Robotics and Control (WS20, SS21)
