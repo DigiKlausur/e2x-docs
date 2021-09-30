@@ -4,21 +4,33 @@
 Instructors
 ***********
 
-Currently, there are two grading servers:
+Depending on the usage and courses, there are three JupyterHub servers 
+running on both in-house infrastructure and Hetzner cloud.
 
-* `Assignment grading server <https://e2x.inf.h-brs.de/jupyterhub/uebung>`_
-* `Exam grading server <https://e2x.inf.h-brs.de/jupyterhub/gs1>`_
+**1. Hetzner cloud**: 
+  
+  * `notebooks.inf.h-brs.de <https://notebooks.inf.h-brs.de>`_ 
+  
+  .. note::
+     
+     Currently, this server is used for WuS-WS21.
 
-Both servers use **LDAP as login**.
+**2. In-house server**: 
+
+  * `MAS course grading server <https://e2x.inf.h-brs.de/jupyterhub/uebung>`_
+  * `Exam grading server <https://e2x.inf.h-brs.de/jupyterhub/gs1>`_
+  
+  .. note::
+
+     Both servers use **LDAP as login**.
 
 The grading servers have `nbgrader`, `nbassignment` and other e2x softaware to 
 support instructors managing assignments. `nbgrader` can be used to manage assignments 
 such as creating, releasing, collectiong and grading them. However, we do not force 
 the instructors to use nbgrader exchange. They can use any other tools 
 such as `nbgitpuller` to release assignments, or LEA to submit the assignments. 
-Nevertheless, we provide `ilias2nbgrader <https://github.com/DigiKlausur/ilias2nbgrader>`_ 
+Nevertheless, we also provide `ilias2nbgrader <https://github.com/DigiKlausur/ilias2nbgrader>`_ 
 package which can be used to convert LEA submissions to nbgrader format.
-
 
 .. _instructor_requesting_a_course:
 
@@ -65,21 +77,23 @@ To request a course, we need the following information:
 
   Graders have access to the following shared directories:
 
-  * **/srv/shares/<course_id>**: is shared among the respective students of the course.
+  * **/srv/shares/<course_id>**: is shared among the students registered in the course.
 
     Where `<course_id>` is the course identifier e.g. `/srv/shares/RP-SS20`.
     This can be used to store e.g. datasets, assignment images, etc.
 
   * **/srv/shares/public**: is shared with all JupyterHub users e.g. `latex_math_editor`
 
-  Both directories are read-write to graders and read-only to students.
+  .. note::
+  
+     Both directories are read-write to graders and read-only to students.
 
 .. _instructor_course_profile:
 
 Course profile
 ==============
 
-Once e2x sys-admin adds the requested course to the hub, the course should be available 
+Once e2x sys-admins add the requested courses to the hub, the course should be available 
 as a profile. Only the corresponding instructors or graders should be able to 
 see and select the course in the profile list during spawning.
 
