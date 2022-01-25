@@ -16,7 +16,7 @@ import sys
 # -- Project information -----------------------------------------------------
 
 project = 'E2X H-BRS'
-copyright = '2021, E2X H-BRS'
+copyright = '2022, E2X H-BRS'
 author = 'E2X H-BRS'
 
 # The full version, including alpha/beta/rc tags
