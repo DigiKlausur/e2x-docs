@@ -24,6 +24,8 @@ Archived
 
 **[13.10.2020]** We are at JupyterCon 2020 presenting our paper:`Electronic Examination using Jupyter Notebook with JupyterHub and nbgrader <https://www.youtube.com/watch?v=ev2bUm7Z77M>`_.
 
+**[02.01.2020]** We are migrating our in-house server to a Kubernetes cluster on OpenStack
+
 **[01.10.2018]** 283 students are registered for WuS and will be using e2x infrastructure for the lecture and examination
 
 **[01.09.2018]** We are migrating our single-machine JupyterHub deployment to Kubernetes and will be using our new domain from the Department of Computer Science `notebooks.inf.h-brs.de <https://notebooks.inf.h-brs.de>`_
