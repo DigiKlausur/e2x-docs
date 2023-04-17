@@ -12,15 +12,16 @@
 #
 import os
 import sys
+from datetime import date
 
 # -- Project information -----------------------------------------------------
 
 project = 'E2X H-BRS'
-copyright = '2022, E2X H-BRS'
+copyright = f'{date.today().year}, E2X H-BRS'
 author = 'E2X H-BRS'
 
 # The full version, including alpha/beta/rc tags
-release = '0.1.0'
+release = '1.0.0'
 
 # -- General configuration ---------------------------------------------------
 
